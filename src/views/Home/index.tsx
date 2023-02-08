@@ -1,7 +1,5 @@
 export default function () {
  return (
-  <h1>
-      Home/Dashboard
-  </h1>
+  <h1>Welcome to our index Page | Dashboard</h1>
  );
 }

@@ -4,7 +4,7 @@ import React, { PropsWithChildren } from 'react';
 import { Outlet } from 'react-router-dom';
 import LayoutWrap, { Content } from './Layout.style';
 
-const Layout: React.FC<PropsWithChildren> = () => {
+const Layout: React.FC<PropsWithChildren> = ({children}) => {
   return (
       <LayoutWrap>
         <Sidebar />
@@ -16,7 +16,7 @@ const Layout: React.FC<PropsWithChildren> = () => {
           <Appbar />
           <Divider />
           <Content>
-            <Outlet />
+            {<Outlet />}
           </Content>
         </Box>
       </LayoutWrap>

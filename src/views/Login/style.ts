@@ -3,15 +3,19 @@ import { Box } from '@mui/system';
 
 const LoginWrap = styled(Box)`
   display: flex;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   justify-content: center;
   align-items: center;
 `;
 
 export const LoginBox = styled.form`
-  height: 440px;
+  height: 400px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   max-width: 330px;
 `;
 
