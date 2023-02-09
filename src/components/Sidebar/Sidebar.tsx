@@ -1,22 +1,22 @@
-import { Collapse, List, ListItemIcon, ListItemText } from '@mui/material';
+import { Collapse, List } from '@mui/material';
 import React from 'react';
-import SendIcon from '@mui/icons-material/LockPersonSharp';
-import Draft from '@mui/icons-material/AbcSharp';
 import StyledNav, { ListItem, LogoHolder, NavWrapper } from './style';
-import { 
-    ExpandLess, 
-    ExpandMore, 
-    CategoryOutlined, 
-    PaletteOutlined, 
-    SquareFootOutlined,
-    SettingsSuggest,
-    Redeem,
-    Store,
-   } from '@mui/icons-material';
+import {
+  ExpandLess,
+  ExpandMore,
+  CategoryOutlined,
+  PaletteOutlined,
+  SquareFootOutlined,
+  SettingsSuggest,
+  Redeem,
+  Store,
+} from '@mui/icons-material';
+import SidebarItem from './SidebarItem';
 
 
 const Sidebar: React.FC = () => {
   const [open, setOpen] = React.useState(true);
+
   const handleClick = () => {
     setOpen(!open);
   };
@@ -33,47 +33,45 @@ const Sidebar: React.FC = () => {
         </svg>
       </LogoHolder>
       <StyledNav>
-        <ListItem>
-          <ListItemIcon>
-            <Redeem />
-          </ListItemIcon>
-          <ListItemText primary="Stores Request" />
-        </ListItem>
-        <ListItem>
-          <ListItemIcon>
-            <Store />
-          </ListItemIcon>
-          <ListItemText primary="Existing Stores" />
-        </ListItem>
-        <ListItem onClick={handleClick}>
-        <ListItemIcon>
-          <SettingsSuggest />
-        </ListItemIcon>
-        <ListItemText primary="Setups" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <CategoryOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Product Categories" />
-          </ListItem>
-          <ListItem sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <PaletteOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Colors" />
-          </ListItem>
-          <ListItem sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <SquareFootOutlined />
-            </ListItemIcon>
-            <ListItemText primary="Sizes" />
-          </ListItem>
-        </List>
-      </Collapse>
+        <SidebarItem
+          icon={Redeem}
+          text="Stores Request"
+          to="/stores-request"
+        />
+        <SidebarItem
+          icon={Store}
+          text="Existing Stores"
+          to="/existing-stores"
+        />
+        <SidebarItem
+          icon={SettingsSuggest}
+          text="Setups"
+          onClick={handleClick}
+        >
+          {open ? <ExpandLess /> : <ExpandMore />}
+        </SidebarItem>
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <SidebarItem 
+              icon={CategoryOutlined}
+              text="Product Categories"
+              sx={{ pl: 4 }}
+              to="/product-categories"
+            />
+            <SidebarItem 
+              icon={PaletteOutlined}
+              text="Colors"
+              sx={{ pl: 4 }}
+              to="/colors"
+            />
+            <SidebarItem 
+              icon={SquareFootOutlined}
+              text="Sizes"
+              sx={{ pl: 4 }}
+              to="/sizes"
+            />
+          </List>
+        </Collapse>
       </StyledNav>
     </NavWrapper>
   );

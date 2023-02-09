@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { List } from '@mui/material';
 import ListItemButton from '@mui/material/ListItemButton';
+import { NavLink } from 'react-router-dom';
 
 export const NavWrapper =  styled.div`
   display: flex;
@@ -29,6 +30,7 @@ const StyledNav = styled(List)`
 `;
 
 export const ListItem = styled(ListItemButton)`
+  border-radius: 8px;
   & span {
     font-size: 0.875rem;
     line-height: 1.5;
@@ -38,4 +40,10 @@ export const ListItem = styled(ListItemButton)`
     color: #1976D2;
   }
 `;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
+`;
+
 export default StyledNav;

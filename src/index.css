@@ -9,3 +9,12 @@ body {
   width: 100%;
   overflow: hidden;
 }
+
+a.active.__link > div {
+  background: #1976D2;
+  color: #FFFFFF;
+}
+
+a.active.__link svg {
+  color: #FFFFFF;
+}
